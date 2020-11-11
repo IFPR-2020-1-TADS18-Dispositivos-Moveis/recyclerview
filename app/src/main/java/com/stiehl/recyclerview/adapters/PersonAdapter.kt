@@ -12,6 +12,11 @@ import kotlinx.android.synthetic.main.item_person_disabled.view.*
 class PersonAdapter : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
     private val people = Person.getAll().toMutableList()
 
+    fun add(person: Person) {
+        people.add(person)
+        notifyItemInserted(people.size - 1)
+    }
+
     override fun getItemCount() = people.size
 
     override fun getItemViewType(position: Int): Int {
